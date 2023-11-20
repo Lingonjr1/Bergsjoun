@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #notificationForm {
+            text-align: center;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="notificationForm">
+    <h2>Create a Notification</h2>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <br>
+    <label for="message">Notification Message:</label>
+    <input type="text" id="message" required>
+    <br>
+    <button onclick="createNotification()">Create Notification</button>
+</div>
+
+<script>
+    function createNotification() {
+        const password = document.getElementById('password').value;
+        const message = document.getElementById('message').value;
+
+        // Check if the password is correct (you can replace 'yourPassword' with your actual password)
+        if (password === 'bollar09') {
+            // Check if the browser supports the Notification API
+            if ('Notification' in window) {
+                // Request permission to show notifications
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        // Create a notification
+                        new Notification('Notification', {
+                            body: message,
+                            icon: 'path/to/your/icon.png' // Replace with the path to your icon
+                        });
+                    } else {
+                        alert('Notification permission denied. Please grant permission to show notifications.');
+                    }
+                });
+            } else {
+                alert('Your browser does not support desktop notifications.');
+            }
+
+            // Clear the input fields
+            document.getElementById('password').value = '';
+            document.getElementById('message').value = '';
+        } else {
+            alert('Incorrect password. Please try again.');
+        }
+    }
+</script>
+
+</body>
+</html>
