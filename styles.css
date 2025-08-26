@@ -19,6 +19,7 @@ html, body {
   padding: 0;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -75,6 +76,7 @@ header {
   background: #ddd;
 }
 
+/* Movie/Series Text */
 #movieseriestext {
   text-align: center;
   color: white;
@@ -82,9 +84,12 @@ header {
   margin: 20px auto;
 }
 
+/* Pumpkins */
 .pumpkins {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 600px;
   margin: 20px auto;
@@ -95,12 +100,14 @@ header {
   height: auto;
 }
 
+/* Block Text */
 #blockid {
   color: white;
   margin: 40px auto;
   text-align: center;
 }
 
+/* Settings */
 .settings-div {
   display: none;
 }
@@ -113,6 +120,7 @@ header {
   color: white; 
 }
 
+/* Toggle */
 #toggleButton {
   position: fixed;
   top: 10px;
@@ -132,6 +140,7 @@ header {
   background-color: #474747;
 }
 
+/* Popup Settings */
 #myDiv {
   display: none;
   position: fixed;
@@ -141,6 +150,7 @@ header {
   background-color: #3b3b3b;
   border-radius: 4px;
   z-index: 1000;
+  max-width: 300px;
 }
 
 #myDiv button {
@@ -163,6 +173,7 @@ header {
   color: white;
 }
 
+/* Game Logos */
 .GameLogos {
   position: relative;
   width: 100%;
@@ -222,6 +233,7 @@ header {
   max-width: 1000px;
 }
 
+/* Game Frame */
 #gameiframe {
   width: 100%;
   max-width: 1000px;
@@ -257,6 +269,7 @@ header {
   background-color: #fef9f3;
 }
 
+/* Google Form */
 #googleforms {
   position: fixed;
   top: 100px;
@@ -265,6 +278,7 @@ header {
   height: calc(100% - 100px);
 }
 
+/* GXMES Button */
 #gxmesbutton {
   display: block;
   margin: 20px auto;
@@ -295,6 +309,7 @@ header {
   box-shadow: 0 0 10px 5px orange, 0 0 20px 10px orange;
 }
 
+/* Chat */
 #chattext {
   font-size: 2rem;
   color: #5539cc;
@@ -328,6 +343,7 @@ header {
   50% { border-color: white; }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 0.7em;
 }
@@ -341,4 +357,23 @@ header {
 ::-webkit-scrollbar-thumb {
   background: hsla(75, 100%, 100%, 1);
   border-radius: 100vw;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  #movieseriestext { font-size: 2rem; }
+  .pumpkins { max-width: 400px; }
+  #pumpkin, #pumpkin1 { width: 90px; }
+  .games-grid { gap: 15px; }
+  #gameiframe { height: 50vh; }
+  .typewriter-text { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 10px; }
+  .navlinks { flex-direction: column; gap: 10px; }
+  #movieseriestext { font-size: 1.8rem; }
+  #pumpkin, #pumpkin1 { width: 70px; }
+  #gxmesbutton { width: 160px; height: 45px; line-height: 45px; }
+  .typewriter-text { font-size: 18px; }
 }
